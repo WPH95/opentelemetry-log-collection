@@ -20,6 +20,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/tcp"
@@ -27,7 +28,6 @@ import (
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/parser/syslog"
 	"github.com/open-telemetry/opentelemetry-log-collection/pipeline"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
-	"github.com/stretchr/testify/require"
 )
 
 func TestSyslogInput(t *testing.T) {

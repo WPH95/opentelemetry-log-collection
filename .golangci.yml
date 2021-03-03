@@ -6,13 +6,11 @@ run:
   skip-dirs-use-default: false
   skip-files:
 linters:
-  gci:
-    local-prefixes: github.com/open-telemetry/opentelemetry-log-collection
   disable:
     - errcheck
   enable:
     - gofmt
-    - goimports
+    - gci
     - bodyclose
     - goconst
     - gocritic
@@ -24,6 +22,8 @@ linters:
     - whitespace
     - ineffassign
 linters-settings:
+  gci:
+    local-prefixes: github.com/open-telemetry/opentelemetry-log-collection
   goconst:
     min-occurrences: 5
 issues:

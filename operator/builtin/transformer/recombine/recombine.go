@@ -15,18 +15,18 @@
 package recombine
 
 import (
+	"context"
+	"fmt"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/antonmedv/expr"
 	"github.com/antonmedv/expr/vm"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
-
-	"context"
-	"fmt"
 )
 
 func init() {

@@ -18,9 +18,9 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
-
 	"github.com/stretchr/testify/require"
+
+	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
 )
 
 func newTestParser(t *testing.T) *URIParser {
