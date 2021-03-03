@@ -15,13 +15,13 @@
 package syslog
 
 import (
+	"fmt"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/operator"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/tcp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/udp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/parser/syslog"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
-
-	"fmt"
 )
 
 func init() {
@@ -87,15 +87,14 @@ func (c *SyslogInputConfig) UnmarshalYAML(unmarshal func(interface{}) error) err
 	}
 	c.SyslogParserConfig = *parserCfg
 
-	base := &BaseSyslogInputConfig{
-	}
-	err =  unmarshal(base)
+	base := &BaseSyslogInputConfig{}
+	err = unmarshal(base)
 	if err != nil {
 		return err
 	}
 
 	c.InputConfig = base.InputConfig
-	c.Tcp= base.Tcp
+	c.Tcp = base.Tcp
 	c.Udp = base.Udp
 	return nil
 }

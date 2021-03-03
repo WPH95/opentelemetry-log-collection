@@ -15,18 +15,17 @@
 package stdin
 
 import (
+	"bufio"
+	"context"
+	"fmt"
 	"os"
 	"sync"
+
+	"go.uber.org/zap"
 
 	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
-
-	"bufio"
-	"context"
-	"fmt"
-
-	"go.uber.org/zap"
 )
 
 func init() {

@@ -15,9 +15,12 @@
 package syslog
 
 import (
+	"fmt"
 	"net"
 	"testing"
 	"time"
+
+	"gopkg.in/yaml.v2"
 
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/tcp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/udp"
@@ -25,9 +28,6 @@ import (
 	"github.com/open-telemetry/opentelemetry-log-collection/pipeline"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
 	"github.com/stretchr/testify/require"
-
-	"fmt"
-	"gopkg.in/yaml.v2"
 )
 
 func TestSyslogInput(t *testing.T) {
@@ -135,5 +135,4 @@ tcp:
 	require.Equal(t, "rfc5424", cfg.Protocol)
 	require.Equal(t, "localhost:1234", cfg.Tcp.ListenAddress)
 	require.Equal(t, true, cfg.Tcp.TLS.Enable)
-
 }

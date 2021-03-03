@@ -6,6 +6,8 @@ run:
   skip-dirs-use-default: false
   skip-files:
 linters:
+  gci:
+    local-prefixes: github.com/open-telemetry/opentelemetry-log-collection
   disable:
     - errcheck
   enable:

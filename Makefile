@@ -44,6 +44,10 @@ listmod:
 lint:
 	golangci-lint run --allow-parallel-runners ./...
 
+.PHONY: lint-fix
+lint-fix:
+	golangci-lint run --fix --allow-parallel-runners ./...
+
 .PHONY: vet
 vet:
 	GOOS=darwin $(MAKE) for-all CMD="go vet ./..."
