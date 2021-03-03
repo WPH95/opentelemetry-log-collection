@@ -15,15 +15,17 @@
 package stdin
 
 import (
-	"context"
-	"fmt"
-	"github.com/open-telemetry/opentelemetry-log-collection/entry"
-	"github.com/open-telemetry/opentelemetry-log-collection/operator"
-	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
 	"os"
 	"sync"
 
+	"github.com/open-telemetry/opentelemetry-log-collection/entry"
+	"github.com/open-telemetry/opentelemetry-log-collection/operator"
+	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
+
 	"bufio"
+	"context"
+	"fmt"
+
 	"go.uber.org/zap"
 )
 

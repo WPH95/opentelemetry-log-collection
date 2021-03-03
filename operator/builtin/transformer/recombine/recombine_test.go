@@ -15,13 +15,15 @@
 package recombine
 
 import (
-	"context"
+	"testing"
+	"time"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
 	"github.com/stretchr/testify/require"
-	"testing"
-	"time"
+
+	"context"
 )
 
 func TestRecombineOperator(t *testing.T) {

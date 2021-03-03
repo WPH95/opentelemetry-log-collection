@@ -1,16 +1,18 @@
 package syslog
 
 import (
-	"fmt"
+	"net"
+	"testing"
+	"time"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/tcp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/udp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/parser/syslog"
 	"github.com/open-telemetry/opentelemetry-log-collection/pipeline"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
 	"github.com/stretchr/testify/require"
-	"net"
-	"testing"
-	"time"
+
+	"fmt"
 )
 
 func TestSyslogInput(t *testing.T) {
@@ -54,11 +56,9 @@ func SyslogInputTest(t *testing.T, cfg *SyslogInputConfig, tc syslog.Case) {
 		require.NoError(t, err)
 	}
 
-
-	switch tc.InputRecord.(type) {
-	case string:
-		_, err = conn.Write([]byte(tc.InputRecord.(string)))
-	case []byte:
+	if msg, ok := tc.InputRecord.(string); ok {
+		_, err = conn.Write([]byte(msg))
+	} else {
 		_, err = conn.Write(tc.InputRecord.([]byte))
 	}
 

@@ -1,8 +1,9 @@
 package syslog
 
 import (
-	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"time"
+
+	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 )
 
 type Case struct {
@@ -43,7 +44,7 @@ func CreateCases(basicConfig func() *SyslogParserConfig) ([]Case, error) {
 			"RFC3164",
 			func() *SyslogParserConfig {
 				cfg := basicConfig()
-				cfg.Protocol = "rfc3164"
+				cfg.Protocol = RFC3164
 				cfg.Location = location["utc"].String()
 				return cfg
 			}(),
@@ -178,5 +179,4 @@ func CreateCases(basicConfig func() *SyslogParserConfig) ([]Case, error) {
 	}
 
 	return cases, nil
-
 }

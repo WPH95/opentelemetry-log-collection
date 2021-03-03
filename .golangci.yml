@@ -24,3 +24,9 @@ linters:
 linters-settings:
   goconst:
     min-occurrences: 5
+issues:
+  exclude-rules:
+    - path: operator/builtin/input/windows/xml\.go
+      linters:
+        - unused
+        - deadcode

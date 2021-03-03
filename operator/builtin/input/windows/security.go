@@ -19,8 +19,8 @@ import (
 )
 
 func parseSecurity(message string) (string, map[string]interface{}) {
-
-	subject, details := message, map[string]interface{}{}
+	var subject string
+	details := map[string]interface{}{}
 
 	mp := newMessageProcessor(message)
 
@@ -35,7 +35,7 @@ func parseSecurity(message string) (string, map[string]interface{}) {
 		return message, nil
 	}
 
-	moreInfo := []string{}
+	var moreInfo []string
 
 	for mp.hasNext() {
 		l = mp.next()
