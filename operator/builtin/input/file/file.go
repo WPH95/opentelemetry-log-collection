@@ -25,10 +25,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-log-collection/entry"
-	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
 	"go.uber.org/zap"
 	"golang.org/x/text/encoding"
+
+	"github.com/open-telemetry/opentelemetry-log-collection/entry"
+	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
 )
 
 // InputOperator is an operator that monitors files for entries
@@ -111,7 +112,6 @@ func (f *InputOperator) startPoller(ctx context.Context) {
 
 // poll checks all the watched paths for new entries
 func (f *InputOperator) poll(ctx context.Context) {
-
 	var matches []string
 	if len(f.queuedMatches) > f.MaxConcurrentFiles {
 		matches, f.queuedMatches = f.queuedMatches[:f.MaxConcurrentFiles], f.queuedMatches[f.MaxConcurrentFiles:]
@@ -229,7 +229,6 @@ OUTER:
 			// Empty file, don't read it until we can compare its fingerprint
 			fps = append(fps[:i], fps[i+1:]...)
 			filesCopy = append(filesCopy[:i], filesCopy[i+1:]...)
-
 		}
 
 		for j := 0; j < len(fps); j++ {

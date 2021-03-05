@@ -19,7 +19,6 @@ import (
 )
 
 func parseSecurity(message string) (string, map[string]interface{}) {
-
 	subject, details := message, map[string]interface{}{}
 
 	mp := newMessageProcessor(message)

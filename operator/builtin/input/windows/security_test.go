@@ -24,7 +24,6 @@ import (
 )
 
 func TestParseSecurity(t *testing.T) {
-
 	testCases := []string{
 		"account_name_changed",
 		"audit_settings_changed",
@@ -51,7 +50,6 @@ func TestParseSecurity(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc, func(t *testing.T) {
-
 			testDir := filepath.Join("testdata", "security", tc)
 			messageBytes, err := ioutil.ReadFile(filepath.Join(testDir, "message.in"))
 			require.NoError(t, err, "problem reading input file")

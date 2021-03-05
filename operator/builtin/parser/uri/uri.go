@@ -135,16 +135,16 @@ func queryToMap(query url.Values, m map[string]interface{}) map[string]interface
 	}
 
 	/* 'parameter' will represent url.Values
-		map[string]interface{}{
-			"parameter-a": []interface{}{
-				"a",
-				"b",
-			},
-			"parameter-b": []interface{}{
-				"x",
-				"y",
-			},
-		}
+	map[string]interface{}{
+		"parameter-a": []interface{}{
+			"a",
+			"b",
+		},
+		"parameter-b": []interface{}{
+			"x",
+			"y",
+		},
+	}
 	*/
 	parameters := map[string]interface{}{}
 	for param, values := range query {
@@ -153,7 +153,6 @@ func queryToMap(query url.Values, m map[string]interface{}) map[string]interface
 	m["query"] = parameters
 	return m
 }
-
 
 // queryParamValuesToMap takes query string parameter values and
 // returns an []interface populated with the values

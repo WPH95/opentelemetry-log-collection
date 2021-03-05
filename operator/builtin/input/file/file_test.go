@@ -30,11 +30,12 @@ import (
 	"time"
 
 	"github.com/observiq/nanojack"
+	"github.com/stretchr/testify/require"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/helper"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
-	"github.com/stretchr/testify/require"
 )
 
 func newDefaultConfig(tempDir string) *InputConfig {
@@ -802,7 +803,6 @@ func (rt rotationTest) run(tc rotationTest, copyTruncate, sequential bool) func(
 }
 
 func TestRotation(t *testing.T) {
-
 	cases := []rotationTest{
 		{
 			name:            "NoRotation",

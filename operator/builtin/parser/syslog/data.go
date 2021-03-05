@@ -1,8 +1,9 @@
 package syslog
 
 import (
-	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 	"time"
+
+	"github.com/open-telemetry/opentelemetry-log-collection/entry"
 )
 
 type Case struct {
@@ -178,5 +179,4 @@ func CreateCases(basicConfig func() *SyslogParserConfig) ([]Case, error) {
 	}
 
 	return cases, nil
-
 }

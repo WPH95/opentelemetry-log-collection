@@ -2,15 +2,17 @@ package syslog
 
 import (
 	"fmt"
+	"net"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/require"
+
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/tcp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/input/udp"
 	"github.com/open-telemetry/opentelemetry-log-collection/operator/builtin/parser/syslog"
 	"github.com/open-telemetry/opentelemetry-log-collection/pipeline"
 	"github.com/open-telemetry/opentelemetry-log-collection/testutil"
-	"github.com/stretchr/testify/require"
-	"net"
-	"testing"
-	"time"
 )
 
 func TestSyslogInput(t *testing.T) {
@@ -53,7 +55,6 @@ func SyslogInputTest(t *testing.T, cfg *SyslogInputConfig, tc syslog.Case) {
 		conn, err = net.Dial("udp", cfg.Udp.ListenAddress)
 		require.NoError(t, err)
 	}
-
 
 	switch tc.InputRecord.(type) {
 	case string:
